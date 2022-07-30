@@ -1,0 +1,7 @@
+it=open('input.txt', 'r')
+ot=open('output.txt', 'w')
+a=int(it.read())
+ans=pow(2,a)
+ot.write(str(ans))
+it.close()
+ot.close()

@@ -1,0 +1,8 @@
+it=open('input.txt', 'r')
+ot=open('output.txt', 'w')
+a=int(it.read())
+e=float('2.7182818284590452353602875')
+ans=round(e,a)
+print(ans)
+it.close()
+ot.close()
