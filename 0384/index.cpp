@@ -1,22 +1,20 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
-int gcd(int x, int y) {
-	while (y %= x) swap(x, y);
-	return x;
+int gcd(int a, int b) {
+	if (b == 0) return a;
+	return gcd(b, a % b);
 }
 
 int main() {
-	int x, y, f = 0, F = 1; cin >> x >> y;
-	x = max(x, y); y = min(x, y);
-	for (int i = 2; i <= x; i++) {
-		swap(f, F);
-		F += f;
-		if (i == y) y = F;
-		if (i == x) x = F;
+	int i, j; cin >> i >> j;
+	long long f_prev = 0, f_now = 1;
+	for (int x = 2; x <= gcd(i, j); x++) {
+		long long f = (f_now + f_prev) % 1000000000;
+		f_prev = f_now;
+		f_now = f;
 	}
-	cout << x << y;
+	cout << f_now;
 	return 0;
 }
